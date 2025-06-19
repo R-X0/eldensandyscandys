@@ -37,10 +37,10 @@ class ComputerUsingAgent:
         self.playwright = sync_playwright().start()
         self.browser = self.playwright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
-        self.page.set_viewport_size(
-            width=self.config.viewport_width, 
-            height=self.config.viewport_height
-        )
+        self.page.set_viewport_size({
+            'width': self.config.viewport_width, 
+            'height': self.config.viewport_height
+        })
         
     def stop_browser(self):
         """Clean up browser resources"""
